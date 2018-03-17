@@ -1,0 +1,176 @@
+.toolbar--title .toolbar--material__center {
+    text-align: center;
+    box-shadow: none;
+    font-size: 18px;
+}
+.toolbar--title {
+    box-shadow: none;
+}
+
+
+
+.contentT .toolbar+.page__background+.page__content {
+    top: 0;
+}
+.none {
+    display: none;
+}
+.login-img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top:0;
+}
+.list--login {
+    color: #fff;
+    margin-top: 260px;
+}
+.list--login .list-item {
+    padding-left: 0;
+    width: 70%;
+    margin-left: 15%;
+}
+.list--login .list-item .list-item__center .ons-icon {
+    color: #fff;
+    font-size: 28px;
+    margin-right: 12px;
+}
+.list--login .list-item,
+.list--login .list-item .list-item__center {
+    background-image: none;
+}
+
+.list--login ons-input {
+    color: #fff;
+    width: calc(100% - 36px) !important;
+}
+.list--login .text-input {
+    color: #fff;
+}
+.list--login .text-input--underbar {
+    border-bottom: 1px solid #fff;
+}
+.list--login .text-input--material {
+    background-image: none;
+}
+.button--btn-transparent {
+    width: calc(100% - 88px) !important;
+    margin: 0 8px 8px;
+    text-align: center;
+    background: none;
+    font-size: 14px;
+    border: 1px solid #fff;
+    border-radius: 22px;
+    margin-top: 30px;
+}
+.logo-img {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 40%;
+    margin-left: 30%;
+}
+
+.list--register{
+    margin-top: 120px;
+}
+
+.red-list {
+    background: #e3e3e3;
+}
+.red-bg .toolbar__title {
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+.red-list {
+    min-height: 700px;
+}
+.list--home {
+    width: 80%;
+    margin-left: 10%;
+}
+.list--home .list-item--canvas,
+.list--home .list-item--canvas .list-item__center {
+    padding-left: 0;
+    padding-right: 0;
+    background-image: none;
+}
+.code-tiele {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    color: #666;
+}
+.code {
+    width: 70%;
+    margin-left: 15%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+.borderT {
+    width: 100%;
+    border-bottom: 6px dotted #e3e3e3;
+}
+
+.borderT span:before, .borderT span:after {
+    position: absolute;
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #e3e3e3;
+    content: " ";
+    left: 26px;
+    margin-top: -8px;
+}
+
+.borderT span:after {
+   left: 87%;
+}
+
+
+.button--btn-red {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    background: #d03c43;
+    font-size: 14px;
+    margin-top: 30px;
+}
+.list-item--marginTS {
+    margin-top: 10px;
+}
+.list-item--marginT {
+    margin-top: 30px;
+}
+.list-item--marginB {
+    margin-bottom: 30px;
+}
+.list-item--home-message {
+    font-size: 12px;
+}
+.list-item--home-input .list-item__center{
+    font-size: 12px;
+    background-image: none;
+}
+.list-item--home-input .ons-icon {
+    font-size: 26px;
+    margin-right: 8px;
+}
+
+.list-item--home-input .text-input--underbar {
+    border-bottom: 1px solid #e3e3e3;
+}
+.list-item--home-input .text-input--material {
+    background-image: none;
+}
+
+.list-item--home-input ons-input {
+    width: calc(100% - 36px) !important;
+}
+
+
+
+
