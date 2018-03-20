@@ -1,16 +1,9 @@
-/*
- * @Author: qugang 
- * @Date: 2018-01-07 14:26:03 
- * @Last Modified by: qugang
- * @Last Modified time: 2018-01-10 16:40:37
- */
 
 import React, { Component } from 'react'
 import fetch from './common/fetch'
 import * as Ons from "react-onsenui"
 import * as ons from "onsenui"
 import * as path from './common/path'
-import loginBackgroundImage from '../image/login-bg.jpg'
 
 class Register extends Component {
     constructor(props) {
@@ -32,9 +25,22 @@ class Register extends Component {
                 props.navigator.popPage()
             }
             else {
-                ons.notification.alert('注册失败')
+                ons.notification.alert(res.resultMessage)
             }
         })
+    }
+
+    cancelClick(e){
+        this.props.navigator.popPage()
+        //this.props.navigator.pushPage({ comp: Login, props: { key: "Login", navigator: this.props.navigator } })
+    }
+
+    renderToolbar() {
+        return (
+            <Ons.Toolbar>
+                <div className='center'>注册</div>
+            </Ons.Toolbar>
+        );
     }
 
     handleUsernameChange(e) {
@@ -46,33 +52,34 @@ class Register extends Component {
 
     render() {
         return (
-            <Ons.Page className="contentT" >
-                <img className="login-img" src={loginBackgroundImage} />
-                <Ons.List modifier="login register" style={{ textAlign: 'center' }}>
-                    <Ons.ListItem>
-                        <Ons.Icon icon="ion-person" />
+            <Ons.Page renderToolbar={this.renderToolbar}>
+
+                <section style={{textAlign: 'center'}}>
+                    <p>
                         <Ons.Input
                             value={this.state.username}
+                            style={{width: '80%'}}
                             onChange={this.handleUsernameChange.bind(this)}
                             modifier='underbar'
                             float
-                            placeholder='Username' />
-                    </Ons.ListItem>
-                    <Ons.ListItem>
-                        <ons-icon icon="ion-ios-locked" />
+                            placeholder='Username'/>
+                    </p>
+                    <p>
                         <Ons.Input
                             value={this.state.password}
+                            style={{width: '80%'}}
                             onChange={this.handlePasswordChange.bind(this)}
                             modifier='underbar'
                             type='password'
                             float
-                            placeholder='Password' />
-                    </Ons.ListItem>
+                            placeholder='Password'/>
+                    </p>
+                    <p>
+                    <Ons.Button style={{margin: '6px', width: '80%'}} onClick={this.handleClick.bind(this)}>注册</Ons.Button>
+                    <Ons.Button style={{margin: '6px', width: '80%'}} modifier='outline' onClick={this.cancelClick.bind(this)}>返回</Ons.Button>
+                    </p>
+                </section>
 
-                    <Ons.Button modifier="btn-transparent" onClick={this.handleClick.bind(this)}>注 册</Ons.Button>
-                    <Ons.Button modifier="btn-transparent" onClick={this.handleClick.bind(this)}>返 回</Ons.Button>
-
-                </Ons.List>
             </Ons.Page>
         )
     }

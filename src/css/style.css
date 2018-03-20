@@ -7,8 +7,6 @@
     box-shadow: none;
 }
 
-
-
 .contentT .toolbar+.page__background+.page__content {
     top: 0;
 }
@@ -83,9 +81,7 @@
     font-size: 16px;
     text-align: center;
 }
-.red-list {
-    min-height: 700px;
-}
+
 .list--home {
     width: 80%;
     margin-left: 10%;
@@ -137,7 +133,7 @@
     text-align: center;
     background: #d03c43;
     font-size: 14px;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 .list-item--marginTS {
     margin-top: 10px;

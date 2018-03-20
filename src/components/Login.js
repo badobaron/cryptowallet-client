@@ -12,15 +12,13 @@ import * as ons from "onsenui"
 import * as path from './common/path'
 import Register from './Register'
 import Home from './Home'
-import loginBackgroundImage from '../image/login-bg.jpg'
-import loginLogoImage from '../image/logo.png'
 
 class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: "",
-            password: ""
+            username: "bb2",
+            password: "bb2"
         }
     }
 
@@ -28,31 +26,37 @@ class Login extends Component {
 
         const props = this.props
 
-        props.navigator.pushPage({
-            comp: Home, props: {
-                key: "Home", navigator: props.navigator,
-                username: "test", address: "test"
+        fetch(path.login, {
+            username: this.state.username,
+            userpwd: this.state.password
+        }).then(function (res) {
+            if (res.resultCode === "1000") {
+                window.localStorage.token = res.token;
+
+                props.navigator.pushPage({
+                    comp: Home, props: {
+                        key: "Home",
+                        navigator: props.navigator,
+                        username: res.user.username,
+                        ethAddress: res.user.ethAddress,
+                        ethBalance: res.user.ethBalance
+                    }
+                })
+            }
+            else {
+                ons.notification.alert(res.resultMessage)
             }
         })
-        // fetch(path.login, {
-        //     username: this.state.username,
-        //     userpwd: this.state.password
-        // }).then(function (res) {
-        //     if (res.resultCode === "1000") {
-        //         window.localStorage.token = res.token
-
-        //         props.navigator.pushPage({
-        //             comp: Home, props: {
-        //                 key: "Home", navigator: props.navigator,
-        //                 username: res.user.username, address: res.user.ethAddress
-        //             }
-        //         })
-        //     }
-        //     else {
-        //         ons.notification.alert('登陆失败')
-        //     }
-        // })
     }
+
+    renderToolbar() {
+        return (
+            <Ons.Toolbar>
+                <div className='center'>登录</div>
+            </Ons.Toolbar>
+        );
+    }
+
     handleUsernameChange(e) {
         this.setState({ username: e.target.value });
     }
@@ -65,40 +69,35 @@ class Login extends Component {
     }
     render() {
         return (
-            <Ons.Page className="contentT" renderToolbar={() => (
-                <Ons.Toolbar className="none">
-                    <div className='center'>登陆</div>
-                </Ons.Toolbar>
-            )}>
+            <Ons.Page renderToolbar={this.renderToolbar}>
 
-                <img className="login-img" src={loginBackgroundImage} />
-
-                <Ons.List modifier="login" style={{ textAlign: 'center' }}>
-                    <img className="logo-img" src={loginLogoImage} />
-                    <Ons.ListItem>
-                        <Ons.Icon icon="ion-person" />
+                <section style={{textAlign: 'center'}}>
+                    <p>
                         <Ons.Input
                             value={this.state.username}
+                            style={{width:'80%'}}
                             onChange={this.handleUsernameChange.bind(this)}
                             modifier='underbar'
                             float
                             placeholder='Username' />
-                    </Ons.ListItem>
-                    <Ons.ListItem>
-                        <ons-icon icon="ion-ios-locked" />
+                    </p>
+                    <p>
                         <Ons.Input
                             value={this.state.password}
+                            style={{width:'80%'}}
                             onChange={this.handlePasswordChange.bind(this)}
                             modifier='underbar'
                             type='password'
                             float
                             placeholder='Password' />
-                    </Ons.ListItem>
+                    </p>
+                    <p>
+                        <Ons.Button style={{margin: '6px',width:'80%'}} onClick={this.handleClick.bind(this)}>登 录</Ons.Button>
+                        <Ons.Button style={{margin: '6px',width:'80%'}} modifier='outline' onClick={this.register.bind(this)}>注册</Ons.Button>
+                    </p>
+                    <p></p>
+                </section>
 
-                    <Ons.Button modifier="btn-transparent" onClick={this.handleClick.bind(this)}>登 陆</Ons.Button>
-                    <Ons.Button modifier="btn-transparent" onClick={this.register.bind(this)}>注 册</Ons.Button>
-
-                </Ons.List>
             </Ons.Page>
         )
     }
