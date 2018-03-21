@@ -16,18 +16,19 @@ import CoinComp from './CoinComp'
 class BtcComp extends CoinComp {
 
     handleClick(e){
-        fetch(path.transfer, {
-            'ethAddress':this.state.address,
-            'ethValue':this.state.value,
-            'privateKey': this.state.privateKey
+        this.setState({ isClickable: false })
+        fetch(path.btcTransfer, {
+            'address':this.state.toAddress,
+            'value':this.state.toAmt
         },window.localStorage.token).then(function (res) {
+            this.setState({ isClickable: true })
             if(res.resultCode === "1000"){
                 ons.notification.alert('转账成功')
             }
             else{
                 ons.notification.alert('转账失败')
             }
-        })
+        }.bind(this))
     }
 }
 

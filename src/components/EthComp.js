@@ -19,11 +19,9 @@ class EthComp extends CoinComp {
         super(props)
     }
 
-    
-
     handleClick(e){
         this.setState({ isClickable: false })
-        fetch(path.transfer, {
+        fetch(path.ethTransfer, {
             'ethAddress':this.state.toAddress,
             'ethValue':this.state.toAmt
         },window.localStorage.token).then(function (res) {

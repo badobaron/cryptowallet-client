@@ -39,7 +39,9 @@ class Login extends Component {
                         navigator: props.navigator,
                         username: res.user.username,
                         ethAddress: res.user.ethAddress,
-                        ethBalance: res.user.ethBalance
+                        ethBalance: res.user.ethBalance,
+                        btcAddress: res.user.btcAddress,
+                        btcBalance: res.user.btcBalance
                     }
                 })
             }

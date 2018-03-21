@@ -18,6 +18,8 @@ class Home extends Component {
             username: this.props.username,
             ethAddress: this.props.ethAddress,
             ethBalance: this.props.ethBalance,
+            btcAddress: this.props.btcAddress,
+            btcBalance: this.props.btcBalance,
             value: ""
         }
     }
@@ -31,7 +33,7 @@ class Home extends Component {
                 tab: <Ons.Tab label='ETH' icon='md-home' />
             },
             {
-                content: <BtcComp content="BTC" address={this.state.ethAddress} balance={this.state.ethBalance} />,
+                content: <BtcComp content="BTC" address={this.state.btcAddress} balance={this.state.btcBalance} />,
                 tab: <Ons.Tab label='BTC' icon='md-settings' />
             }
         ];

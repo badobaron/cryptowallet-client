@@ -13,4 +13,6 @@ export const register = "http://localhost:3005/users/register"
 
 export const userInfo = "http://localhost:3005/users/userInfo"
 
-export const transfer = "http://localhost:3005/users/transfer"
+export const ethTransfer = "http://localhost:3005/users/ethTransfer"
+
+export const btcTransfer = "http://localhost:3005/users/btcTransfer"
